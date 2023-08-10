@@ -1,0 +1,13 @@
+apiVersion: v2
+name: harperdb
+description: "HarperDB is a turn-key solution for the collection, distribution, and analysis of data."
+type: application
+version: 0.1.1
+appVersion: "4.1.3"
+keywords:
+  - harperdb
+  - database
+home: https://harperdb.io
+maintainers:
+  - name: harperdb support
+    emai: support@harperdb.io
