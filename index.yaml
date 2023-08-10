@@ -1,0 +1,21 @@
+apiVersion: v1
+entries:
+  harperdb:
+  - apiVersion: v2
+    appVersion: 4.1.3
+    created: "2023-08-10T22:08:30.965473178Z"
+    description: HarperDB is a turn-key solution for the collection, distribution,
+      and analysis of data.
+    digest: af11a52d96ac8e1a75fdf2db96fca25729f29995c444b3d2714236d32375675c
+    home: https://harperdb.io
+    keywords:
+    - harperdb
+    - database
+    maintainers:
+    - name: harperdb support
+    name: harperdb
+    type: application
+    urls:
+    - https://github.com/HarperDB/helm/releases/download/harperdb-0.2.0/harperdb-0.2.0.tgz
+    version: 0.2.0
+generated: "2023-08-10T22:08:30.965479878Z"
