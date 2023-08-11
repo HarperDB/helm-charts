@@ -1,8 +1,15 @@
 <img src="https://hdb-marketing.s3.amazonaws.com/GRYHORIZ_HDB_Drk_Gry.png" width="692" height="156">
 
-## HarperDB Helm Repository
+## HarperDB Helm Chart
 
-A collection of helm charts used to run HarperDB.
+A helm charts used to run HarperDB. For more information on how to run HarperDB, please
+see the [documentation](https://docs.harperdb.io) and the [dev-center](https://www.harperdb.io/development)
+
+## Considerations
+
+- Persistent Storage: for most use cases you will likely want persistent and preferably fast storage.
+- TLS Certificates: HarperDB currently generates self signed certificates on it's first run. If you want something more
+  more than this, you will need to provision through a service like [cert-manger](https://cert-manager.io/)
 
 ## Usage
 
