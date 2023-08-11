@@ -5,6 +5,25 @@ entries:
       artifacthub.io/category: database
     apiVersion: v2
     appVersion: 4.1.3
+    created: "2023-08-11T19:40:02.284493451Z"
+    description: HarperDB is a turn-key solution for the collection, distribution,
+      and analysis of data.
+    digest: b299a40ff2d947a0ee4706b512d90cedcc6754ea89bcba586c3d394af5bbb3c0
+    home: https://harperdb.io
+    keywords:
+    - harperdb
+    - database
+    maintainers:
+    - name: harperdb support
+    name: harperdb
+    type: application
+    urls:
+    - https://github.com/HarperDB/helm-charts/releases/download/harperdb-0.2.3/harperdb-0.2.3.tgz
+    version: 0.2.3
+  - annotations:
+      artifacthub.io/category: database
+    apiVersion: v2
+    appVersion: 4.1.3
     created: "2023-08-11T19:10:43.697433884Z"
     description: HarperDB is a turn-key solution for the collection, distribution,
       and analysis of data.
@@ -54,4 +73,4 @@ entries:
     urls:
     - https://github.com/HarperDB/helm/releases/download/harperdb-0.2.0/harperdb-0.2.0.tgz
     version: 0.2.0
-generated: "2023-08-11T19:10:43.697443085Z"
+generated: "2023-08-11T19:40:02.284512851Z"
