@@ -23,4 +23,4 @@ kubectl get --namespace {{ .Release.Namespace }} \
 
 harperdb.secrets.ref: {{ (include "harperdb.secrets.ref" . ) }}
 harperdb.secrets.cluster.ref: {{ (include "harperdb.secrets.clustering.ref" . ) }}
-{{-end }}
+{{- end }}
