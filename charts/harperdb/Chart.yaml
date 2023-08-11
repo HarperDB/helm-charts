@@ -2,7 +2,7 @@ apiVersion: v2
 name: harperdb
 description: "HarperDB is a turn-key solution for the collection, distribution, and analysis of data."
 type: application
-version: 0.2.0
+version: 0.2.1
 appVersion: "4.1.3"
 keywords:
   - harperdb

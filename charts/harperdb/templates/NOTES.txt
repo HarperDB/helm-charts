@@ -7,7 +7,8 @@
 {{- end }}
 {{- end }}
 
-To get the username and password, run:
+{{- if .Release.IsInstall }}
+To get the initial username and password, run:
 -------------------------------------
 kubectl get --namespace {{ .Release.Namespace }} \
   secrets {{ include "harperdb.secrets.ref" . }} \
@@ -22,3 +23,4 @@ kubectl get --namespace {{ .Release.Namespace }} \
 
 harperdb.secrets.ref: {{ (include "harperdb.secrets.ref" . ) }}
 harperdb.secrets.cluster.ref: {{ (include "harperdb.secrets.clustering.ref" . ) }}
+{{-end }}

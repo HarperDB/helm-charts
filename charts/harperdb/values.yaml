@@ -1,9 +1,11 @@
 ##
 # -- Base Config
 #######################
-# Set username for Operations API access. Not defining this will autogenerate a user
+# Set initial username for Operations API access. Not defining this will autogenerate a user.
+# updating this will not change existing credentials
 username: ""
-# Set password for Operations API access. Not defining this will autogenerate a pass and put it in a secret
+# Set initial password for Operations API access. Not defining this will autogenerate a pass and put it in a secret.
+# updating this will not change existing credentials
 password: ""
 # existing secretName: # name of secret. must contain `username` and `password` values
 existingSecretRef: ""
