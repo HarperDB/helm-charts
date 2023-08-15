@@ -129,6 +129,15 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+#  podAntiAffinity:
+#    requiredDuringSchedulingIgnoredDuringExecution:
+#      - labelSelector:
+#          matchExpressions:
+#            - key: "fabric.harperdb.io"
+#              operator: In
+#              values:
+#                - core
+#        topologyKey: "kubernetes.io/hostname"
 
 # extra labels to add to resources created from this chart
 extraLabels: {}
