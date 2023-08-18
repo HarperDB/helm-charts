@@ -11,7 +11,7 @@ keywords:
 home: https://harperdb.io
 maintainers:
   - name: harperdb support
-    emai: support@harperdb.io
+    email: support@harperdb.io
 
 annotations:
   # artifactHub.io annotations (https://artifacthub.io/docs/topics/annotations/helm/}
