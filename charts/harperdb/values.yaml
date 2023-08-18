@@ -48,7 +48,7 @@ image:
   repository: harperdb/harperdb
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  #tag: ""
+  # tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -90,7 +90,8 @@ service:
 persistentStorage:
   # do we want to enable persistent storage
   enabled: true
-  storageClass: "-" # "-" for default class
+  # "-" for default storage class
+  storageClass: "-"
   # size of storage volume
   size: 1Gi
   # path of storage volume
