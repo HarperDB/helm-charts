@@ -5,6 +5,3 @@ chart-dirs:
   - charts
 chart-repos:
   - harperdb=https://harperdb.github.io/helm-charts
-helm-extra-args: --timeout 600s
-additional-commands:
-  # - helm unittest --helm3 --strict --file unittests/*.yaml --file 'unittests/**/*.yaml' {{ .Path }}

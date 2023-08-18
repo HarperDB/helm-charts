@@ -72,7 +72,11 @@ Create usernames and passwords for secretRef for Operations API access if needed
 {{ if and (.Release.IsInstall) (empty .Values.existingSecretRef) }}
 {{- .Values.username | default (randAlpha 8) }}
 {{- else }}
-{{ (lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.ref" . )).data.HDB_ADMIN_USERNAME | trim | b64dec | trim }}
+{{ with lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.ref" . ) }}
+{{ trim .data.HDB_ADMIN_USERNAME | b64dec | trim }}
+{{- else }}
+{{ default (randAlpha 8) }}
+{{- end }}
 {{- end }}
 {{- end }}
 
@@ -80,7 +84,11 @@ Create usernames and passwords for secretRef for Operations API access if needed
 {{- if and (.Release.IsInstall) (empty .Values.existingSecretRef) }}
 {{- .Values.password | default (randAlphaNum 32) }}
 {{- else }}
-{{ (lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.ref" . )).data.HDB_ADMIN_PASSWORD | trim | b64dec | trim }}
+{{ with lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.ref" . ) }}
+{{ trim .data.HDB_ADMIN_PASSWORD | b64dec | trim }}
+{{- else }}
+{{ default (randAlpha 32) }}
+{{- end }}
 {{- end }}
 {{- end }}
 
@@ -98,7 +106,11 @@ Create usernames and passwords for secretRef for Clustering if needed
 {{- if empty .Values.clustering.existingSecretRef }}
 {{ randAlpha 8 }}
 {{- else }}
-{{ (lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.clustering.ref" . )).data.CLUSTERING_USER | trim | b64dec | trim }}
+{{ with lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.clustering.ref" . ) }}
+{{ trim .data.CLUSTERING_USER | b64dec | trim }}
+{{- else }}
+{{ default (randAlpha 8) }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -110,7 +122,11 @@ Create usernames and passwords for secretRef for Clustering if needed
 {{- if empty .Values.clustering.existingSecretRef }}
 {{ randAlphaNum 32 }}
 {{- else }}
-{{ (lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.clustering.ref" . )).data.CLUSTERING_PASSWORD | trim | b64dec | trim }}
+{{ with lookup "v1" "Secret" .Release.Namespace (include "harperdb.secrets.clustering.ref" . ) }}
+{{ trim .data.CLUSTERING_PASSWORD | b64dec | trim }}
+{{- else }}
+{{ default (randAlpha 32) }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
