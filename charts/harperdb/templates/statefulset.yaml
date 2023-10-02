@@ -83,15 +83,11 @@ spec:
               protocol: TCP
             {{- end }}
           livenessProbe:
-            tcpSocket:
-              port: operations
-            initialDelaySeconds: 5
-            periodSeconds: 10
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            tcpSocket:
-              port: operations
-            initialDelaySeconds: 5
-            periodSeconds: 10
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.persistentStorage.enabled }}
