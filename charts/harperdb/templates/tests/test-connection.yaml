@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "harperdb.fullname" . }}:{{ .Values.service.operationsPort }}']
+      args: ['--no-check-certificate', 'https://{{ include "harperdb.fullname" . }}:{{ .Values.service.operationsPort }}/health','--output-document=-']
   restartPolicy: Never

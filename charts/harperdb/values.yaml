@@ -89,7 +89,7 @@ service:
 
 persistentStorage:
   # do we want to enable persistent storage
-  enabled: true
+  enabled: false
   # "-" for default storage class
   storageClass: "-"
   # size of storage volume
@@ -130,7 +130,8 @@ livenessProbe:
   httpGet:
     path: /health
     port: operations
-  initialDelaySeconds: 5
+    scheme: HTTPS
+  failureThreshold: 1
   periodSeconds: 10
 
 # define probe to test if service is ready to accept requests
@@ -138,11 +139,19 @@ readinessProbe:
   httpGet:
     path: /health
     port: operations
+    scheme: HTTPS
+  failureThreshold: 3
   initialDelaySeconds: 5
-  periodSeconds: 10
+  periodSeconds: 3
 
 # define probe to preempt liveness probe
-startupProbe: {}
+startupProbe:
+  httpGet:
+    path: /health
+    port: operations
+    scheme: HTTPS
+  failureThreshold: 30
+  periodSeconds: 10
 
 nodeSelector: {}
 
