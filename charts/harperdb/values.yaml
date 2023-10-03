@@ -48,7 +48,7 @@ image:
   repository: harperdb/harperdb
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  #tag: ""
+  # tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -89,8 +89,9 @@ service:
 
 persistentStorage:
   # do we want to enable persistent storage
-  enabled: true
-  storageClass: "-" # "-" for default class
+  enabled: false
+  # "-" for default storage class
+  storageClass: "-"
   # size of storage volume
   size: 1Gi
   # path of storage volume
@@ -124,11 +125,48 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# define probe to test if service is unrecoverable or not
+livenessProbe:
+  httpGet:
+    path: /health
+    port: operations
+    scheme: HTTPS
+  failureThreshold: 1
+  periodSeconds: 10
+
+# define probe to test if service is ready to accept requests
+readinessProbe:
+  httpGet:
+    path: /health
+    port: operations
+    scheme: HTTPS
+  failureThreshold: 3
+  initialDelaySeconds: 5
+  periodSeconds: 3
+
+# define probe to preempt liveness probe
+startupProbe:
+  httpGet:
+    path: /health
+    port: operations
+    scheme: HTTPS
+  failureThreshold: 30
+  periodSeconds: 10
+
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+#  podAntiAffinity:
+#    requiredDuringSchedulingIgnoredDuringExecution:
+#      - labelSelector:
+#          matchExpressions:
+#            - key: "fabric.harperdb.io"
+#              operator: In
+#              values:
+#                - core
+#        topologyKey: "kubernetes.io/hostname"
 
 # extra labels to add to resources created from this chart
 extraLabels: {}
